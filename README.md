@@ -5,7 +5,7 @@ Log to file by date for go lang.
 ### Example
 ```go
 
-logger := log.New(path, filename prefix, log prefix, print out log)
+log := logger.New(path, filename prefix, log prefix, print out log)
 ```
 
 ```go
