@@ -19,4 +19,4 @@ func main() {
 	log := logger.New("./log", "api", "", true)
 	log.Println("This is an example")
 }
-```
+``` 

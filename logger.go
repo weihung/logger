@@ -95,24 +95,29 @@ func (l *Logger) Fatalln(v ...interface{}) {
 // Panic is equivalent to Print() followed by a call to panic().
 func (l *Logger) Panic(v ...interface{}) {
 	l.CheckDate()
-	l.logger.Panic(v...)
-	log.Panic(v...)
+	l.logger.Print(v...)
+	if l.ShowLog {
+		log.Panic(v...)
+	}
+	os.Exit(1)
 }
 
 // Panicf is equivalent to Printf() followed by a call to panic().
 func (l *Logger) Panicf(format string, v ...interface{}) {
 	l.CheckDate()
-	l.logger.Panicf(format, v...)
+	l.logger.Printf(format, v...)
 	if l.ShowLog {
 		log.Panicf(format, v...)
 	}
+	os.Exit(1)
 }
 
 // Panicln is equivalent to Println() followed by a call to panic().
 func (l *Logger) Panicln(v ...interface{}) {
 	l.CheckDate()
-	l.logger.Panicln(v...)
+	l.logger.Println(v...)
 	if l.ShowLog {
 		log.Panicln(v...)
 	}
+	os.Exit(1)
 }
