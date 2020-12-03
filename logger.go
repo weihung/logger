@@ -117,7 +117,51 @@ func (l *Logger) Panicln(v ...interface{}) {
 	l.CheckDate()
 	l.logger.Println(v...)
 	if l.ShowLog {
+		log.Println(v...)
+	}
+}
+
+// E is log with error tag
+func (l *Logger) E(v ...interface{}) {
+	l.CheckDate()
+	label := []interface{}{"[ERROR]"}
+	v = append(label, v)
+	l.logger.Println(v...)
+	if l.ShowLog {
 		log.Panicln(v...)
 	}
 	os.Exit(1)
+}
+
+// W is log with warring tag
+func (l *Logger) W(v ...interface{}) {
+	l.CheckDate()
+	label := []interface{}{"[WARRING]"}
+	v = append(label, v)
+	l.logger.Println(v...)
+	if l.ShowLog {
+		log.Println(v...)
+	}
+}
+
+// I is log with info tag
+func (l *Logger) I(v ...interface{}) {
+	l.CheckDate()
+	label := []interface{}{"[INFO]"}
+	v = append(label, v)
+	l.logger.Println(v...)
+	if l.ShowLog {
+		log.Println(v...)
+	}
+}
+
+// D is log with debig tag
+func (l *Logger) D(v ...interface{}) {
+	l.CheckDate()
+	label := []interface{}{"[DEBUG]"}
+	v = append(label, v)
+	l.logger.Println(v...)
+	if l.ShowLog {
+		log.Println(v...)
+	}
 }
