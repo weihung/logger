@@ -125,7 +125,7 @@ func (l *Logger) Panicln(v ...interface{}) {
 func (l *Logger) E(v ...interface{}) {
 	l.CheckDate()
 	label := []interface{}{"[ERROR]"}
-	v = append(label, v)
+	v = append(label[:1], v)
 	l.logger.Println(v...)
 	if l.ShowLog {
 		log.Panicln(v...)
@@ -137,7 +137,7 @@ func (l *Logger) E(v ...interface{}) {
 func (l *Logger) W(v ...interface{}) {
 	l.CheckDate()
 	label := []interface{}{"[WARRING]"}
-	v = append(label, v)
+	v = append(label[:1], v)
 	l.logger.Println(v...)
 	if l.ShowLog {
 		log.Println(v...)
@@ -148,7 +148,7 @@ func (l *Logger) W(v ...interface{}) {
 func (l *Logger) I(v ...interface{}) {
 	l.CheckDate()
 	label := []interface{}{"[INFO]"}
-	v = append(label, v)
+	v = append(label[:1], v)
 	l.logger.Println(v...)
 	if l.ShowLog {
 		log.Println(v...)
@@ -159,7 +159,7 @@ func (l *Logger) I(v ...interface{}) {
 func (l *Logger) D(v ...interface{}) {
 	l.CheckDate()
 	label := []interface{}{"[DEBUG]"}
-	v = append(label, v)
+	v = append(label[:1], v)
 	l.logger.Println(v...)
 	if l.ShowLog {
 		log.Println(v...)
