@@ -130,7 +130,6 @@ func (l *Logger) E(v ...interface{}) {
 	if l.ShowLog {
 		log.Println(v...)
 	}
-	os.Exit(1)
 }
 
 // W is log with warring tag
