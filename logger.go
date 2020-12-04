@@ -128,7 +128,7 @@ func (l *Logger) E(v ...interface{}) {
 	v = append(label[:1], v...)
 	l.logger.Println(v...)
 	if l.ShowLog {
-		log.Panicln(v...)
+		log.Println(v...)
 	}
 	os.Exit(1)
 }
